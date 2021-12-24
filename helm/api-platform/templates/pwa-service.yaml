@@ -1,0 +1,14 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: {{ include "api-platform.fullname" . }}-frontend
+  labels:
+    {{- include "api-platform.labelsFRONTEND" . | nindent 4 }}
+spec:
+  ports:
+    - port: 3000
+      targetPort: 3000
+      protocol: TCP
+      name: http
+  selector:
+    {{- include "api-platform.selectorLabelsFRONTEND" . | nindent 4 }}
