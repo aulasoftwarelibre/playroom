@@ -29,6 +29,7 @@ const colors = {
         base: "#374151" /* gray-700 #374151 */,
         inverted: "#E5E7EB" /* gray-200 #E5E7EB */,
         primary: "#FFFFFF" /* white */,
+        accent: "#7C3AED", /* purple-600 */
       },
     },
     dark: {
@@ -46,6 +47,7 @@ const colors = {
         base: "#E5E7EB" /* gray-200 #E5E7EB */,
         inverted: "#E5E7EB" /* gray-200 #E5E7EB */,
         primary: "#FFFFFF" /* white */,
+        accent: "#7C3AED", /* purple-600 */
       },
     },
   },
@@ -77,6 +79,11 @@ const components  = {
   Layout: {
     baseStyle: ({ colorMode }: StyleFunctionProps) => ({
       bgColor: `skin.${colorMode}.bg.body`,
+    }),
+  },
+  Link: {
+    baseStyle: ({ colorMode }: StyleFunctionProps) => ({
+      color: `skin.${colorMode}.text.accent`,
     }),
   },
   Navbar: {

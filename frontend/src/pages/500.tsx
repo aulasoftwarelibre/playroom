@@ -1,9 +1,9 @@
-import {Layout} from "../components";
+import { BasicLayout, ServerError } from "../components";
 
-export default function Custom404() {
+export default function Custom500() {
   return (
-    <Layout>
-      500
-    </Layout>
+    <BasicLayout>
+      <ServerError />
+    </BasicLayout>
   );
 }
