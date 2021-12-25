@@ -17,7 +17,7 @@ services:
       context: ./frontend
       target: api_platform_frontend_dev
     volumes:
-      - ./frontend:/app/frontend:rw,cached
+      - ./frontend:/app:rw,cached
 
   caddy:
     volumes:
