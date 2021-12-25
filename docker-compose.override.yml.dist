@@ -18,7 +18,11 @@ services:
       target: api_platform_frontend_dev
     volumes:
       - ./frontend:/app:rw,cached
-
+      - ./frontend/node_modules:/app/node_modules:rw,cached
+    environment:
+      CLIENT_ID: !ChangeMe!
+      CLIENT_SECRET: !ChangeMe!
+      SECRET: !ChangeMe!
   caddy:
     volumes:
       - ./api/docker/caddy/Caddyfile:/etc/caddy/Caddyfile:ro

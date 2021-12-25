@@ -1,7 +1,5 @@
 import { extendTheme, ColorMode } from "@chakra-ui/react";
 import {createBreakpoints, StyleFunctionProps} from "@chakra-ui/theme-tools";
-import {List} from "postcss/lib/list";
-import Dict = NodeJS.Dict;
 
 const fonts = { body: "Nunito", heading: "Nunito" };
 
@@ -21,6 +19,7 @@ const colors = {
         body: "#F3F4F6" /* gray-100 #F3F4F6 */,
         base: "#FFFFFF" /* white */,
         accent: "#FFFFFF" /* white */,
+        primary: "#7C3AED", /* purple-600 */
       },
       border: {
         base: "#E5E7EB" /* gray-700 #374151 */,
@@ -37,6 +36,7 @@ const colors = {
         body: "#111827" /* gray-900 #111827 */,
         base: "#1F2937" /* gray-700 #374151 */,
         accent: "#374151" /* gray-600 #4B5563 */,
+        primary: "#7C3AED", /* purple-600 */
       },
       border: {
         base: "#374151" /* gray-700 #374151 */,
@@ -61,6 +61,18 @@ const components  = {
       borderColor: `skin.${colorMode}.border.base`,
       textColor: `skin.${colorMode}.text.base`,
     }),
+  },
+  Button: {
+    variants: {
+      login:  ({colorMode}: StyleFunctionProps) => ({
+        bgColor: `skin.${colorMode}.bg.primary`,
+        textColor: `skin.${colorMode}.text.primary`,
+        width: "100%",
+        _hover: {
+          opacity: "80%"
+        }
+      }),
+    }
   },
   Layout: {
     baseStyle: ({ colorMode }: StyleFunctionProps) => ({
