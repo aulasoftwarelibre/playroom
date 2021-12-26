@@ -1,6 +1,5 @@
-import { HiExclamationCircle } from "react-icons/hi";
 import React from "react";
-import {Box, Flex, Heading, Icon, Text} from "@chakra-ui/react";
+import {Flex, Heading, Icon, Text} from "@chakra-ui/react";
 
 interface Props {
   code: number,
