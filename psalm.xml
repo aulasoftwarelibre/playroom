@@ -1,0 +1,28 @@
+<?xml version="1.0"?>
+<psalm
+    errorLevel="7"
+    totallyTyped="true"
+    strictBinaryOperands="true"
+    allowStringToStandInForClass="false"
+    resolveFromConfigFile="true"
+>
+
+    <issueHandlers>
+        <LessSpecificReturnType errorLevel="info" />
+    </issueHandlers>
+
+    <plugins>
+        <pluginClass class="Psalm\SymfonyPsalmPlugin\Plugin">
+            <containerXml>api/var/cache/dev/App_KernelDevDebugContainer.xml</containerXml>
+        </pluginClass>
+    </plugins>
+
+    <projectFiles>
+        <directory name="api/src"/>
+        <ignoreFiles>
+            <directory name="api/vendor" />
+            <directory name="api/src/Repository"/>
+            <file name="api/src/Kernel.php"/>
+        </ignoreFiles>
+    </projectFiles>
+</psalm>
