@@ -1,0 +1,39 @@
+repos:
+    - repo: local
+      hooks:
+          - id: commitlint
+            name: commitlint
+            stages: [commit-msg]
+            language: node
+            additional_dependencies:
+                - "@commitlint/cli"
+                - "@commitlint/config-conventional"
+            entry: commitlint --edit
+
+          - id: phpcs
+            name: phpcs
+            language: script
+            entry: api/vendor/bin/phpcbf
+            files: api/.*
+            types: [php]
+
+          - id: psalm
+            name: psalm
+            language: script
+            entry: api/vendor/bin/psalm
+            files: api/src/.*
+            types: [php]            
+
+          - id: eslint
+            name: eslint
+            language: node
+            additional_dependencies:
+                - "eslint"
+                - "eslint-config-next"
+                - "eslint-config-prettier"
+                - "eslint-plugin-prettier"
+                - "eslint-plugin-simple-import-sort"
+                - "prettier"
+                - "next"
+            entry: eslint --fix
+            files: frontend/src/.*\.[ts,tsx]

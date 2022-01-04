@@ -3,3 +3,6 @@
 !/helm/api-platform/charts/.gitignore
 /docker-compose.override.yml
 !/docker-compose.override.yml.dist
+/.phpcs-cache
+/.venv
+/poetry.lock
