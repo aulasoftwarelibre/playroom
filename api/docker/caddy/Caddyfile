@@ -17,7 +17,7 @@ log
 # except for known API paths and paths with extensions handled by API Platform
 @frontend expression `(
         {header.Accept}.matches("\\btext/html\\b")
-        && !{path}.matches("(?i)(?:^/docs|^/graphql|^/bundles/|^/_profiler|^/_wdt|\\.(?:json|html$|csv$|ya?ml$|xml$))")
+        && !{path}.matches("(?i)(?:^/admin|^/docs|^/media|^/graphql|^/bundles/|^/_profiler|^/_wdt|\\.(?:json|html$|csv$|ya?ml$|xml$))")
     )
     || {path} == "/favicon.ico"
     || {path} == "/manifest.json"

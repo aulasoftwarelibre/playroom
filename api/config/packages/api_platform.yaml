@@ -14,3 +14,8 @@ api_platform:
         stateless: true
         cache_headers:
             vary: ['Content-Type', 'Authorization', 'Origin']
+    graphql:
+        default_ide: graphql-playground
+        graphiql:
+            enabled: false
+
