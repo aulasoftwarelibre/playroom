@@ -1,0 +1,5 @@
+schema: ./src/schema.graphql # you can also point to a GraphQL endpoint!
+generates:
+    ./src/types.ts:
+        plugins:
+            - "@graphql-codegen/typescript"

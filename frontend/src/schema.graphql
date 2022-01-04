@@ -1,0 +1,63 @@
+"""A node, according to the Relay specification."""
+interface Node {
+  """The id of this node."""
+  id: ID!
+}
+
+type Query {
+  node(id: ID!): Node
+  room(id: ID!): Room
+  rooms(
+    """Returns the first n elements from the list."""
+    first: Int
+
+    """Returns the last n elements from the list."""
+    last: Int
+
+    """
+    Returns the elements in the list that come before the specified cursor.
+    """
+    before: String
+
+    """
+    Returns the elements in the list that come after the specified cursor.
+    """
+    after: String
+    order: [RoomFilter_order]
+  ): RoomConnection
+}
+
+type Room implements Node {
+  id: ID!
+  name: String!
+  slug: String!
+  description: String!
+  imageUrl: String
+  avatarUrl: String
+}
+
+"""Connection for Room."""
+type RoomConnection {
+  edges: [RoomEdge]
+  pageInfo: RoomPageInfo!
+  totalCount: Int!
+}
+
+"""Edge of Room."""
+type RoomEdge {
+  node: Room
+  cursor: String!
+}
+
+input RoomFilter_order {
+  name: String
+}
+
+"""Information about the current page."""
+type RoomPageInfo {
+  endCursor: String
+  startCursor: String
+  hasNextPage: Boolean!
+  hasPreviousPage: Boolean!
+}
+

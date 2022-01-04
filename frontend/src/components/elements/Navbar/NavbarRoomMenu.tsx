@@ -1,7 +1,10 @@
+import { useQuery } from "@apollo/client";
 import {
+  Avatar,
   Box,
   Button,
   Icon,
+  Image,
   Menu,
   MenuButton,
   MenuItem,
@@ -11,8 +14,15 @@ import {
 import React, { Fragment } from "react";
 import { FaChevronDown, FaHome } from "react-icons/fa";
 
+import { GET_ALL_ROOMS } from "../../../api/rooms";
+import { Query, QueryRoomsArgs, Room, RoomConnection } from "../../../types";
+
 export const NavbarRoomMenu = () => {
   const styles = useStyleConfig("NavbarButton");
+  const { data: { rooms } = {} } = useQuery<
+    Pick<Query, "rooms">,
+    QueryRoomsArgs
+  >(GET_ALL_ROOMS);
 
   return (
     <Menu isLazy>
@@ -32,9 +42,17 @@ export const NavbarRoomMenu = () => {
         </Box>
       </MenuButton>
       <MenuList w="64">
-        <MenuItem>Opción 1</MenuItem>
-        <MenuItem>Opción 2</MenuItem>
-        <MenuItem>Opción 3</MenuItem>
+        {rooms!.edges!.map((room) => (
+          <MenuItem key={room!.node!.slug}>
+            <Avatar
+              size="sm"
+              name={room!.node!.name}
+              src={room!.node!.avatarUrl!}
+              mr="12px"
+            />
+            <span>{room!.node!.name}</span>
+          </MenuItem>
+        ))}
       </MenuList>
     </Menu>
   );

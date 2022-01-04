@@ -7,17 +7,20 @@
     "build": "next build",
     "start": "next start",
     "lint": "next lint",
-    "prepare": "cd .. && husky install frontend/.husky",
-    "type-check": "tsc --project tsconfig.json --pretty --noEmit"
+    "type-check": "tsc --project tsconfig.json --pretty --noEmit",
+    "generate": "graphql-codegen"
   },
   "dependencies": {
+    "@apollo/react-hooks": "^4.0.0",
     "@chakra-ui/icons": "^1.1.1",
     "@chakra-ui/react": "^1.7.3",
     "@chakra-ui/theme-tools": "^1.3.1",
     "@emotion/react": "^11.7.1",
     "@emotion/styled": "^11.6.0",
     "@fontsource/nunito": "^4.5.1",
+    "apollo-client": "^2.6.10",
     "framer-motion": "^5.5.5",
+    "graphql": "^15.0.0",
     "next": "12.0.7",
     "next-auth": "^4.0.6",
     "react": "17.0.2",
@@ -25,13 +28,17 @@
     "react-icons": "^4.3.1"
   },
   "devDependencies": {
-    "@commitlint/cli": "^15.0.0",
-    "@commitlint/config-conventional": "^15.0.0",
+    "@graphql-codegen/cli": "^2.3.1",
+    "@graphql-codegen/typescript": "^2.4.2",
     "@types/react": "17.0.38",
     "eslint": "8.5.0",
     "eslint-config-next": "12.0.7",
+    "eslint-config-prettier": "^8.3.0",
+    "eslint-plugin-prettier": "^4.0.0",
+    "eslint-plugin-simple-import-sort": "^7.0.0",
     "husky": "^7.0.4",
     "lint-staged": "^12.1.4",
+    "prettier": "^2.5.1",
     "typescript": "4.5.4"
   }
 }
