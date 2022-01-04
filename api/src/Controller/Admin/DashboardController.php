@@ -11,7 +11,7 @@ use Symfony\Component\Routing\Annotation\Route;
 
 class DashboardController extends AbstractDashboardController
 {
-    #[Route('/admin', name: 'admin')]
+    #[Route('/admin', name: 'dashboard')]
     public function index(): Response
     {
         return parent::index();
@@ -23,6 +23,11 @@ class DashboardController extends AbstractDashboardController
             ->setTitle('PlayRoom');
     }
 
+    /**
+     * @return \Generator
+     *
+     * @psalm-return \Generator<int, \EasyCorp\Bundle\EasyAdminBundle\Config\Menu\CrudMenuItem|\EasyCorp\Bundle\EasyAdminBundle\Config\Menu\DashboardMenuItem|\EasyCorp\Bundle\EasyAdminBundle\Config\Menu\SectionMenuItem, mixed, void>
+     */
     public function configureMenuItems(): iterable
     {
         yield MenuItem::linkToDashboard('Dashboard', 'fa fa-home');

@@ -20,7 +20,7 @@ repos:
           - id: psalm
             name: psalm
             language: script
-            entry: api/vendor/bin/psalm
+            entry: /usr/local/bin/docker-compose exec -ti php composer exec psalm
             files: api/src/.*
             types: [php]            
 

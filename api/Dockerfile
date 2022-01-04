@@ -31,6 +31,7 @@ RUN set -eux; \
 		icu-dev \
 		libjpeg-turbo-dev \
 		libpng-dev \
+		libxslt-dev \
 		libzip-dev \
 		zlib-dev \
 	; \
@@ -40,6 +41,7 @@ RUN set -eux; \
 	docker-php-ext-install -j$(nproc) \
 		gd \
 		intl \
+		xsl \
 		zip \
 	; \
 	pecl install \
