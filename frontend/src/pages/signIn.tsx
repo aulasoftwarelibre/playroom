@@ -1,15 +1,25 @@
 /* eslint-disable @next/next/no-img-element */
+import {
+  Box,
+  Button,
+  Flex,
+  Heading,
+  Image,
+  useColorMode,
+  useMultiStyleConfig,
+  useStyleConfig,
+} from "@chakra-ui/react";
+import { NextPageContext } from "next";
 import Head from "next/head";
-import { getCsrfToken, getProviders, signIn } from "next-auth/react";
 import { Provider } from "next-auth/providers";
+import { getCsrfToken, getProviders, signIn } from "next-auth/react";
 import React from "react";
-import {Box, Button, Flex, Heading, Image, useColorMode, useMultiStyleConfig, useStyleConfig} from "@chakra-ui/react";
-import {DarkModeSwitch} from "../components";
-import {NextPageContext} from "next";
+
+import { DarkModeSwitch } from "../components";
 
 interface Props {
-  providers: any,
-  csrfToken: any
+  providers: any;
+  csrfToken: any;
 }
 
 export default function SignIn({ providers, csrfToken }: Props) {
@@ -22,24 +32,58 @@ export default function SignIn({ providers, csrfToken }: Props) {
       <Head>
         <title>Iniciar sesión | PlayRoom</title>
       </Head>
-      <Flex minH="100vh" alignItems="center" p={6} bgColor={`skin.${colorMode}.bg.body`}>
-        <Flex flex="1 1 0%" h="100%" maxW="4xl" mx="auto" overflow="hidden" bgColor={`skin.${colorMode}.bg.base`} rounded="lg" shadow="lg">
-          <Flex position="relative" flexDirection={{ base: "column", md: "row"}} overflowY="auto" w="100%" >
-            <Box h={{ base: 32, md: "auto" }} w={{ md: "50%"}}>
-              <Image aria-hidden objectFit="cover" width="100%" height="100%" src="/assets/img/banner.png" />
+      <Flex
+        minH="100vh"
+        alignItems="center"
+        p={6}
+        bgColor={`skin.${colorMode}.bg.body`}
+      >
+        <Flex
+          flex="1 1 0%"
+          h="100%"
+          maxW="4xl"
+          mx="auto"
+          overflow="hidden"
+          bgColor={`skin.${colorMode}.bg.base`}
+          rounded="lg"
+          shadow="lg"
+        >
+          <Flex
+            position="relative"
+            flexDirection={{ base: "column", md: "row" }}
+            overflowY="auto"
+            w="100%"
+          >
+            <Box h={{ base: 32, md: "auto" }} w={{ md: "50%" }}>
+              <Image
+                alt="Banner"
+                aria-hidden
+                objectFit="cover"
+                width="100%"
+                height="100%"
+                src="/assets/img/banner.png"
+              />
             </Box>
-            <Flex alignItems="center" justifyItems="center" p={{ base: 6, sm: 12 }}  w={{ md: "50%"}}>
+            <Flex
+              alignItems="center"
+              justifyItems="center"
+              p={{ base: 6, sm: 12 }}
+              w={{ md: "50%" }}
+            >
               <Box w="100%">
-                <Heading mb={4} fontSize="xl" fontWeight="semibold" >
+                <Heading mb={4} fontSize="xl" fontWeight="semibold">
                   Iniciar sesión
                 </Heading>
 
                 {providersToRender.map((provider, i) => (
                   <div key={provider.id}>
                     {provider.type === "oauth" && (
-                      <Button variant="login"
+                      <Button
+                        variant="login"
                         key={provider.name}
-                        onClick={() => signIn(provider.id, { callbackUrl: "/" })}
+                        onClick={() =>
+                          signIn(provider.id, { callbackUrl: "/" })
+                        }
                       >
                         {provider.name}
                       </Button>

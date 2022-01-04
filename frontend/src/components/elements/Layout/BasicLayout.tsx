@@ -1,6 +1,5 @@
+import { Box, Container, Flex, useColorMode } from "@chakra-ui/react";
 import React from "react";
-import {Box, Container, Flex, useColorMode} from "@chakra-ui/react";
-
 
 export const BasicLayout: React.FunctionComponent = ({ children }) => {
   const { colorMode } = useColorMode();

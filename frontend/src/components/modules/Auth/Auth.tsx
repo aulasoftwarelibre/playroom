@@ -1,10 +1,9 @@
+import { Flex, Spinner } from "@chakra-ui/react";
+import { useSession } from "next-auth/react";
 import React from "react";
-import {Flex, Spinner} from "@chakra-ui/react";
-import {useSession} from "next-auth/react";
-import {ImSpinner2} from "react-icons/im";
+import { ImSpinner2 } from "react-icons/im";
 
-import {BasicLayout} from "../../elements";
-
+import { BasicLayout } from "../../elements";
 
 export const Auth: React.FunctionComponent = ({ children }) => {
   const { status } = useSession();
@@ -16,7 +15,7 @@ export const Auth: React.FunctionComponent = ({ children }) => {
           <Spinner as={ImSpinner2} size="xl" thickness="none" speed="1s" />
         </Flex>
       </BasicLayout>
-    )
+    );
   }
 
   return <>{children}</>;

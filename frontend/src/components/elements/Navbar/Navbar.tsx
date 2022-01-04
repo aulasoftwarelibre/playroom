@@ -1,16 +1,8 @@
 import { CloseIcon, HamburgerIcon } from "@chakra-ui/icons";
 import {
   Box,
-  Container,
-  Flex,
-  Text,
-  List,
-  ListItem,
-  useStyleConfig,
-  HStack,
-  useDisclosure,
-  IconButton,
   Button,
+  Container,
   Drawer,
   DrawerBody,
   DrawerCloseButton,
@@ -18,9 +10,18 @@ import {
   DrawerFooter,
   DrawerHeader,
   DrawerOverlay,
+  Flex,
+  HStack,
+  IconButton,
   Input,
+  List,
+  ListItem,
+  Text,
+  useDisclosure,
+  useStyleConfig,
 } from "@chakra-ui/react";
 import React from "react";
+
 import { DarkModeSwitch } from "../DarkModeSwitch";
 import { NavbarAvatarMenu } from "./NavbarAvatarMenu";
 import { NavbarRoomMenu } from "./NavbarRoomMenu";
@@ -32,47 +33,43 @@ export const Navbar = () => {
 
   return (
     <>
-    <Box zIndex="10" py="4" shadow="sm" sx={styles}>
-      <Container
-        maxWidth="container.xl"
-        experimental_spaceX="4"
-        display="flex"
-        alignItems="center"
-        px="6"
-        mx="auto"
-        justifyContent="space-between"
-      >
-        <IconButton
-          size={"md"}
-          icon={isOpen ? <CloseIcon /> : <HamburgerIcon />}
-          aria-label={"Open Menu"}
-          display={{ md: "none" }}
-          onClick={isOpen ? onClose : onOpen}
-        />
-        <Flex flex="0 1 auto">
-          <Text fontSize="lg" fontWeight="bold">
-            PlayRoom
-          </Text>
-        </Flex>
-        <HStack display={{ base: "none", md: "flex" }} flex="1 1 0%">
-          <NavbarRoomMenu />
-          <NavbarSearchBox />
-        </HStack>
-        <List display="flex" alignItems="center" experimental_spaceX="3">
-          <ListItem>
-            <DarkModeSwitch />
-          </ListItem>
-          <ListItem>
-            <NavbarAvatarMenu />
-          </ListItem>
-        </List>
-      </Container>
-    </Box>
-    <Drawer
-        isOpen={isOpen}
-        placement="right"
-        onClose={onClose}
-      >
+      <Box zIndex="10" py="4" shadow="sm" sx={styles}>
+        <Container
+          maxWidth="container.xl"
+          experimental_spaceX="4"
+          display="flex"
+          alignItems="center"
+          px="6"
+          mx="auto"
+          justifyContent="space-between"
+        >
+          <IconButton
+            size={"md"}
+            icon={isOpen ? <CloseIcon /> : <HamburgerIcon />}
+            aria-label={"Open Menu"}
+            display={{ md: "none" }}
+            onClick={isOpen ? onClose : onOpen}
+          />
+          <Flex flex="0 1 auto">
+            <Text fontSize="lg" fontWeight="bold">
+              PlayRoom
+            </Text>
+          </Flex>
+          <HStack display={{ base: "none", md: "flex" }} flex="1 1 0%">
+            <NavbarRoomMenu />
+            <NavbarSearchBox />
+          </HStack>
+          <List display="flex" alignItems="center" experimental_spaceX="3">
+            <ListItem>
+              <DarkModeSwitch />
+            </ListItem>
+            <ListItem>
+              <NavbarAvatarMenu />
+            </ListItem>
+          </List>
+        </Container>
+      </Box>
+      <Drawer isOpen={isOpen} placement="right" onClose={onClose}>
         <DrawerOverlay />
         <DrawerContent>
           <DrawerCloseButton />

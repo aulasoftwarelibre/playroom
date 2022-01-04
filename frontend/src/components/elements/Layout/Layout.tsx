@@ -6,9 +6,10 @@ import {
   useStyleConfig,
 } from "@chakra-ui/react";
 import React from "react";
+
 import { Navbar } from "../Navbar";
 
-export const Layout : React.FunctionComponent = ({ children }) => {
+export const Layout: React.FunctionComponent = ({ children }) => {
   const styles = useStyleConfig("Layout");
 
   return (

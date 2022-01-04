@@ -1,8 +1,8 @@
+import { Box, Link, Text } from "@chakra-ui/react";
 import { useRouter } from "next/dist/client/router";
 import React from "react";
 
-import { Error } from "../.."
-import {Box, Link, Text} from "@chakra-ui/react";
+import { Error } from "../..";
 
 export const UnauthorizedError = () => {
   const router = useRouter();

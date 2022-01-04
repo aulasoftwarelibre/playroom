@@ -14,10 +14,7 @@ export const NavbarSearchBox = () => {
   return (
     <Box flex="1 1 0%">
       <InputGroup w="full" maxW="container.xl">
-        <InputLeftElement
-          fontSize="sm"
-          pointerEvents="none"
-        >
+        <InputLeftElement fontSize="sm" pointerEvents="none">
           <SearchIcon color="gray.300" />
         </InputLeftElement>
         <Input

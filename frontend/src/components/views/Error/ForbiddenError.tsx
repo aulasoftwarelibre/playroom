@@ -1,8 +1,8 @@
+import { Box, Link, Text } from "@chakra-ui/react";
 import { useRouter } from "next/dist/client/router";
 import React from "react";
 
-import { Error } from "../.."
-import {Box, Link, Text} from "@chakra-ui/react";
+import { Error } from "../..";
 
 export const ForbiddenError = () => {
   const router = useRouter();
@@ -10,11 +10,8 @@ export const ForbiddenError = () => {
   return (
     <Error code={403} title="Permiso denegado">
       <Text>
-        No está autorizado para ver esta página. Compruebe la dirección  o{" "}
-        <Link onClick={() => router.back()}>
-          vuelva a la página anterior
-        </Link>
-      .
+        No está autorizado para ver esta página. Compruebe la dirección o{" "}
+        <Link onClick={() => router.back()}>vuelva a la página anterior</Link>.
       </Text>
     </Error>
   );

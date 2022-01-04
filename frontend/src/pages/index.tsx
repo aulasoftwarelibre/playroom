@@ -1,5 +1,8 @@
 import { Heading } from "@chakra-ui/react";
-import { Layout, Activity } from "../components";
+
+import { GET_ALL_ROOMS } from "../api/rooms";
+import { Activity, Layout } from "../components";
+import { initializeApollo } from "../lib/apollo";
 
 const Index = () => (
   <Layout>
@@ -9,5 +12,19 @@ const Index = () => (
     <Activity />
   </Layout>
 );
+
+export async function getServerSideProps() {
+  const apolloClient = initializeApollo();
+
+  await apolloClient.query({
+    query: GET_ALL_ROOMS,
+  });
+
+  return {
+    props: {
+      initialApolloState: apolloClient.cache.extract(),
+    },
+  };
+}
 
 export default Index;

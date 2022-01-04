@@ -6,9 +6,10 @@ import {
   Textarea,
   useStyleConfig,
 } from "@chakra-ui/react";
+import styled from "@emotion/styled";
 import React from "react";
 import { FaUserCircle } from "react-icons/fa";
-import styled from "@emotion/styled";
+
 import { ActivityFooter } from "./ActivityFooter";
 
 const Description = styled(Box)`

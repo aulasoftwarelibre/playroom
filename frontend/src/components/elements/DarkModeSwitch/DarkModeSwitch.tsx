@@ -1,6 +1,6 @@
 import { Icon } from "@chakra-ui/icons";
+import { Button, Switch, useColorMode } from "@chakra-ui/react";
 import { RiMoonFill, RiSunFill } from "react-icons/ri";
-import { Button, useColorMode, Switch } from "@chakra-ui/react";
 
 export const DarkModeSwitch = () => {
   const { colorMode, toggleColorMode } = useColorMode();

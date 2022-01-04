@@ -1,8 +1,8 @@
-import NextAuth, {NextAuthOptions} from "next-auth";
+import NextAuth, { NextAuthOptions } from "next-auth";
 
 import { UCOProvider } from "../../../server";
 
-const options : NextAuthOptions = {
+const options: NextAuthOptions = {
   debug: true,
   pages: {
     signIn: "/signIn",
@@ -11,7 +11,7 @@ const options : NextAuthOptions = {
   providers: [
     UCOProvider({
       clientId: process.env.CLIENT_ID ?? "",
-      clientSecret: process.env.CLIENT_SECRET ?? ""
+      clientSecret: process.env.CLIENT_SECRET ?? "",
     }),
   ],
   secret: process.env.SECRET,
