@@ -13,7 +13,7 @@ repos:
           - id: phpcs
             name: phpcs
             language: script
-            entry: api/vendor/bin/phpcbf
+            entry: /usr/local/bin/docker-compose exec -ti php composer exec phpcs
             files: api/.*
             types: [php]
 
