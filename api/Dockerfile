@@ -28,6 +28,7 @@ ARG APCU_VERSION=5.1.21
 RUN set -eux; \
 	apk add --no-cache --virtual .build-deps \
 		$PHPIZE_DEPS \
+		gmp-dev \
 		icu-dev \
 		libjpeg-turbo-dev \
 		libpng-dev \
@@ -37,9 +38,11 @@ RUN set -eux; \
 	; \
 	\
 	docker-php-ext-configure gd  --with-jpeg; \
+	docker-php-ext-configure gmp; \
 	docker-php-ext-configure zip; \
 	docker-php-ext-install -j$(nproc) \
 		gd \
+		gmp \
 		intl \
 		xsl \
 		zip \

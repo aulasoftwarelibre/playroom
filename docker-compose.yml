@@ -27,7 +27,7 @@ services:
       target: api_platform_frontend_prod
     environment:
       API_PLATFORM_CLIENT_GENERATOR_ENTRYPOINT: http://caddy
-      NEXT_PUBLIC_ENTRYPOINT: http://caddy
+      NEXT_PUBLIC_ENTRYPOINT: https://localhost
       NEXTAUTH_URL: http://localhost
       NEXTAUTH_URL_INTERNAL: http://caddy
 

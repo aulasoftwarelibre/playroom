@@ -28,7 +28,9 @@ final class SecurityController extends AbstractController
         $error = $authenticationUtils->getLastAuthenticationError();
         $lastUsername = $authenticationUtils->getLastUsername();
 
-        return $this->render('/security/login.html.twig', [
+        return $this->render(
+            '/security/login.html.twig',
+            [
             'error' => $error,
             'last_username' => $lastUsername,
             'page_title' => 'Iniciar sesión',
@@ -36,7 +38,8 @@ final class SecurityController extends AbstractController
             'target_path' => $this->generateUrl('dashboard'),
             'username_label' => 'Dirección de correo',
             'username_parameter' => 'email',
-        ]);
+            ]
+        );
     }
 
     /**

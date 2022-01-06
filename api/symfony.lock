@@ -25,6 +25,9 @@
     "behat/transliterator": {
         "version": "v1.3.0"
     },
+    "brick/math": {
+        "version": "0.9.3"
+    },
     "composer/package-versions-deprecated": {
         "version": "1.11.99.4"
     },
@@ -152,6 +155,9 @@
     },
     "felixfbecker/language-server-protocol": {
         "version": "1.5.1"
+    },
+    "fgrosse/phpasn1": {
+        "version": "v2.4.0"
     },
     "fig/link-util": {
         "version": "1.2.0"
@@ -309,6 +315,9 @@
     },
     "slevomat/coding-standard": {
         "version": "7.0.18"
+    },
+    "spomky-labs/base64url": {
+        "version": "v2.0.4"
     },
     "squizlabs/php_codesniffer": {
         "version": "3.6",
@@ -736,6 +745,21 @@
     },
     "vimeo/psalm": {
         "version": "4.17.0"
+    },
+    "web-token/jwt-core": {
+        "version": "v2.2.11"
+    },
+    "web-token/jwt-encryption": {
+        "version": "v2.2.11"
+    },
+    "web-token/jwt-encryption-algorithm-aesgcm": {
+        "version": "v2.2.11"
+    },
+    "web-token/jwt-encryption-algorithm-dir": {
+        "version": "v2.2.11"
+    },
+    "web-token/jwt-key-mgmt": {
+        "version": "v2.2.11"
     },
     "webmozart/assert": {
         "version": "1.10.0"

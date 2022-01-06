@@ -24,8 +24,7 @@ class RoomCrudController extends AbstractCrudController
         yield FormField::addPanel("General");
 
         yield IdField::new("id")
-            ->onlyOnIndex()
-            ;
+            ->onlyOnIndex();
         yield TextField::new("name");
         yield TextareaField::new("description");
         yield TextField::new("slug");

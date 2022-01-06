@@ -22,7 +22,7 @@ final class SendConnectionEmailService
     }
 
     /**
-     * @param string $email
+     * @param  string $email
      * @return string
      */
     public function send(string $email, string $requiredRole = 'ROLE_ADMIN'): ?string

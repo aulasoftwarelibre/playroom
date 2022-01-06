@@ -9,6 +9,7 @@ use ApiPlatform\Core\Bridge\Doctrine\Orm\Filter\OrderFilter;
 use App\Repository\RoomRepository;
 use Doctrine\ORM\Mapping as ORM;
 use Gedmo\Mapping\Annotation\Timestampable;
+use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
 use Symfony\Component\HttpFoundation\File\File;
 use Symfony\Component\HttpFoundation\File\UploadedFile;
 use Symfony\Component\Serializer\Annotation\Groups;
@@ -29,8 +30,8 @@ use Vich\UploaderBundle\Mapping\Annotation\UploadableField;
     normalizationContext: ['groups' => ['read']],
 )]
 #[ApiFilter(OrderFilter::class, properties: ["name"], arguments: ["orderParameterName" => "order"])]
-#[ORM\UniqueConstraint(fields: ["name"])]
-#[ORM\UniqueConstraint(fields: ["slug"])]
+#[UniqueEntity(fields: ["name"])]
+#[UniqueEntity(fields: ["slug"])]
 class Room
 {
     #[ORM\Id]
