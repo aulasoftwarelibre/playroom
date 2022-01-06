@@ -8,14 +8,17 @@ use Doctrine\ORM\Mapping as ORM;
 use Gedmo\Mapping\Annotation\Slug;
 use Gedmo\Mapping\Annotation\Timestampable;
 use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
+use Symfony\Component\Serializer\Annotation\Groups;
 use Symfony\Component\Validator\Constraints as Assert;
 
 #[ORM\Entity(repositoryClass: DegreeRepository::class)]
 #[ApiResource(
     graphql: [
         "item_query",
-        "collection_query"
-    ]
+        "collection_query",
+
+    ],
+    normalizationContext: ['groups' => ['read']],
 )]
 #[UniqueEntity("name")]
 #[UniqueEntity("slug")]
@@ -57,10 +60,12 @@ class Degree
         new Assert\Length(max: 255)
         ]
     )]
+    #[Groups(["read"])]
     private ?string $name;
 
     #[ORM\Column(type: 'string', length: 255, unique: true)]
     #[Slug(fields: ['name'])]
+    #[Groups(["read"])]
     private ?string $slug;
 
     #[ORM\Column(type: 'string', length: 16)]
@@ -70,6 +75,7 @@ class Degree
         new Assert\Choice([self::TYPE_DEGREE, self::TYPE_MASTER, self::TYPE_DOCTOR, self::TYPE_OTHERS])
         ]
     )]
+    #[Groups(["read"])]
     private ?string $type;
 
     #[ORM\Column(type: 'string', length: 16, nullable: true)]
@@ -78,6 +84,7 @@ class Degree
         new Assert\Choice([self::FAMILY_ARTS, self::FAMILY_SCIENCE, self::FAMILY_HEALTH, self::FAMILY_SOCIAL, self::FAMILY_ENGINEERING])
         ]
     )]
+    #[Groups(["read"])]
     private ?string $family;
 
     #[ORM\Column(type: 'datetime_immutable')]

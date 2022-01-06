@@ -4,6 +4,7 @@ namespace App\Entity;
 
 use ApiPlatform\Core\Annotation\ApiProperty;
 use ApiPlatform\Core\Annotation\ApiResource;
+use ApiPlatform\Core\Annotation\ApiSubresource;
 use App\Repository\MemberRepository;
 use App\Resolver\GetMeResolver;
 use Doctrine\ORM\Mapping as ORM;
@@ -119,6 +120,7 @@ class Member implements UserInterface
 
     #[ORM\ManyToOne(targetEntity: Degree::class)]
     #[Assert\Valid]
+    #[Groups(["read", "write"])]
     private ?Degree $degree;
 
     public function __construct()
