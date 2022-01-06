@@ -117,6 +117,10 @@ class Member implements UserInterface
     #[Groups(["read"])]
     public ?string $avatarUrl = null;
 
+    #[ORM\ManyToOne(targetEntity: Degree::class)]
+    #[Assert\Valid]
+    private ?Degree $degree;
+
     public function __construct()
     {
         $this->avatar = new EmbeddedFile();
@@ -239,6 +243,18 @@ class Member implements UserInterface
         if ($avatarFile) {
             $this->updatedAt = new \DateTimeImmutable();
         }
+
+        return $this;
+    }
+
+    public function getDegree(): ?Degree
+    {
+        return $this->degree;
+    }
+
+    public function setDegree(?Degree $degree): self
+    {
+        $this->degree = $degree;
 
         return $this;
     }

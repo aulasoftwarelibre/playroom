@@ -2,6 +2,7 @@
 
 namespace App\Controller\Admin;
 
+use App\Entity\Degree;
 use App\Entity\Member;
 use App\Entity\Room;
 use EasyCorp\Bundle\EasyAdminBundle\Config\Dashboard;
@@ -44,5 +45,6 @@ class DashboardController extends AbstractDashboardController
         yield MenuItem::section('Organization');
         yield MenuItem::linkToCrud('Rooms', 'fas fa-cube', Room::class);
         yield MenuItem::linkToCrud('Members', 'fas fa-user', Member::class);
+        yield MenuItem::linkToCrud('Degrees', 'fas fa-graduation-cap', Degree::class);
     }
 }
